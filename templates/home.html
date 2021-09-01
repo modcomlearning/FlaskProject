@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+<!--    https://getbootstrap.com/-->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+      <script src="https://kit.fontawesome.com/f8ca3d18f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--   colors: primary, dark, danger, success, info, warning, white, secondary, muted -->
+<!-- https://hackerthemes.com/bootstrap-cheatsheet/-->
+<!--nav bar here-->
+<section class="row bg-warning" style="padding-left:3%;padding-top:3%;
+ padding-right:3%;">
+     <div class="col-md-12">
+          <!-- Paste navbar here from cheatsheet -->
+          <!-- read on navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">
+                  <img src="../static/logo.png" alt="" width="150" height="50">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link text-info" href="/">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-info" href="#">Accesories</a>
+                  </li>
+
+                    <style>
+                          .dropdown:hover>.dropdown-menu{
+                               display:block;
+                          }
+
+                        .dropdown>.dropdown-toggle:active {
+                        }
+                    </style>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#"
+                           id="navbardrop1" data-toggle="dropdown">
+                               <i class="fas fa-user"></i>Account</a>
+                         <div class="dropdown-menu">
+                             <a href="/signin" class="dropdown-item">Sign In</a>
+                             <a href="" class="dropdown-item">Sign Up</a>
+                         </div>
+                    </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#"
+                       id="navbardrop" data-toggle="dropdown">Electronics</a>
+                     <div class="dropdown-menu">
+                         <a href="" class="dropdown-item">Tv Screens</a>
+                         <a href="" class="dropdown-item">Smartphones</a>
+                         <a href="" class="dropdown-item">Cookers</a>
+                         <a href="" class="dropdown-item">Kitchen Appliances</a>
+                     </div>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div>
+            </nav>
+
+
+     </div>
+</section>
+
+<!--carousel here-->
+<section class="row">
+    <div class="col-md-12">
+           <div class="bd-example">
+              <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="../static/slide1.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>First slide label</h3>
+                      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="../static/slide2.jpg">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h3>Second slide label</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <i class="fas fa-hand-point-left"
+                     style="font-size:30px;color:orange"></i>
+                  <span class="sr-only">Prev</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                  <i class="fas fa-hand-point-right"
+                     style="font-size:30px;color:orange"></i>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+    </div>
+</section>
+<br>
+<div class="container">
+   <h4>ABOUT US</h4>
+   <section class="row">
+        <div class="col-md-8">
+            <h4 class="bg-warning text-white">Welcome to Shoe LTD</h4>
+             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam consectetur distinctio dolor harum molestias numquam porro soluta. Aliquam asperiores est facere fugit harum ipsam labore nobis, quia sequi soluta?</p>
+             <h4>Our Client</h4>
+             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur  aliquam aliquid dignissimos earum fugiat id sint suscipit, ullam vel veritatis? Architecto asperiores dignissimos earum eius nesciunt quam qui quis ullam.</p>
+             <a href="" class="btn btn-outline-warning">Read More</a>
+        </div>
+
+        <div class="col-md-4">
+             <img src="../static/pic2.jpg" alt="" class="img-fluid" >
+        </div>
+   </section>
+   <!--  2nd section-->
+    <br>
+   <h4>WHAT WE DO</h4>
+   <section class="row">
+       <div class="col-md-4">
+             <h5>Sports Wear</h5>
+             <img src="../static/sport.jpeg" alt="" class="img-fluid" width="70%">
+             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cum eum fugiat fugit itaque perferendis placeat quam, quasi quia vitae! Eos excepturi incidunt ipsum modi nihil non nulla, repudiandae veniam.</p>
+             <a href="" class="btn btn-outline-warning">Read More</a>
+       </div>
+
+       <div class="col-md-4">
+              <h5>Kids Wear</h5>
+             <img src="../static/kids.jpg" alt="" class="img-fluid" width="70%">
+             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cum eum fugiat fugit itaque perferendis placeat quam, quasi quia vitae! Eos excepturi incidunt ipsum modi nihil non nulla, repudiandae veniam.</p>
+             <a href="" class="btn btn-outline-warning">Read More</a>
+       </div>
+
+       <div class="col-md-4">
+             <h5>Sandles</h5>
+             <img src="../static/sandles.jpeg" alt="" class="img-fluid" width="70%">
+             <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa cum eum fugiat fugit itaque perferendis placeat quam, quasi quia vitae! Eos excepturi incidunt ipsum modi nihil non nulla, repudiandae veniam.</p>
+             <a href="" class="btn btn-outline-warning">Read More</a>
+       </div>
+   </section>
+    <br>
+    <h4>TRENDING</h4>
+    <section class="row">
+        <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+       <!-- 2nd trending shoe-->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+      <!-- 3rd products -->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+       <!-- 4th product-->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b><strike>KES 1,750</strike></b>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                     <a href="">60% OFF</a>
+                 </div>
+             </div>
+        </div>
+    </section>
+    <br>
+    <h4>Look and Feel Your Best </h4>
+    <!-- TODO 2 more sections, follow jamboshop.com -->
+        <section class="row">
+        <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+       <!-- 2nd trending shoe-->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+      <!-- 3rd products -->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                 </div>
+             </div>
+        </div>
+       <!-- 4th product-->
+            <div class="col-md-3">
+             <div class="card">
+                 <img src="../static/pic1.jpg" alt="" class="img-fluid">
+                 <div class="card-body">
+                     <p class="text-muted">Kids School shoes , get the offer
+                         before stock lasts..</p>
+                     <b><strike>KES 1,750</strike></b>
+                     <b class="text-warning">KES 1,500</b> <br>
+                     <a href="" class="btn btn-info">Buy Now</a>
+                     <a href="">60% OFF</a>
+                 </div>
+             </div>
+        </div>
+    </section>
+    <br>
+    <hr>
+    <section class="row">
+         <div class="col-md-4">
+             <h4>SHOES LTD</h4>
+             <p class="text-muted">  we are a medium sized company focusing on selling a
+                 wide range of products <br>
+                 <b>Email</b> <i>info@shoelimited.com</i> <br>
+                 <b>Tel:</b> <i>254 729 *** ***</i> <br>
+                 <b>Follow us on;</b> <br>
+                 <a href="">
+                       <i class="fab fa-twitter" style="font-size:40px; color:#039BE5;"></i>
+                 </a>
+
+                   <a href="">
+                       <i class="fab fa-facebook" style="font-size:40px; color:#01579B;"></i>
+                 </a>
+
+                   <a href="">
+                       <i class="fab fa-youtube" style="font-size:40px; color:#D50000;"></i>
+                 </a>
+                    <a href="">
+                       <i class="fab fa-google-play" style="font-size:40px; color:#1DE986;"></i>
+                 </a>
+             </p>
+         </div>
+
+          <div class="col-md-4">
+                <i class="far fa-clock" style="font-size:30px; color: orange"></i> <br>
+                <b class="text-muted">We are open 9.00 AM - 5.00PM Weekdays, 9.00AM - 12PM Weekends</b> <br>
+                <b class="text-muted">We remain closed on Public Holidays</b> <br>
+                 <i class="fas fa-phone" style="font-size:30px; color: orange"></i> <br>
+                 <b class="text-warning">Customer Care</b> <br>
+                 <b>+254 728 000 000</b> <br>
+                 <b>+254 725 000 000</b> <br>
+                 <b>+254 726 000 000</b> <br>
+         </div>
+          <div class="col-md-4">
+              <i class="fas fa-user-friends" style="font-size:30px; color: orange"></i><br>
+              <b class="text-warning">Subscribe Newletter</b> <br>
+              <p class="text-muted">Subscribe to our newsletter to receive special offers</p>
+              <form action="">
+                  <input type="email" placeholder="You Email">
+                  <input type="submit" class="btn btn-warning" value="Send">
+              </form>
+              <b>We Accept</b> <br>
+               <i class="fab fa-cc-visa" style="font-size:30px;"></i>
+               <i class="fab fa-cc-paypal"  style="font-size:30px;"></i>
+              <i class="fab fa-cc-mastercard" style="font-size:30px;"></i>
+              <img src="../static/lipa.jpeg" alt="" width="30%">
+              <img src="../static/airtel.png" alt="" width="30%">
+         </div>
+    </section>
+</div>
+<footer class="row" style="background:orange;color:white;text-align:center; padding:1%;">
+    <div class="col-md-12">
+        <b>Copyright &copy; 2021 - All rights reserved. </b>
+        <i>Customer Care: 254 788 555 555</i>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>
