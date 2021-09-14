@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Shop</title>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<!--Paste or do  your navbar here-->
+
+<section class="row bg-warning" style="padding-left:3%;padding-top:3%;
+ padding-right:3%;">
+     <div class="col-md-12">
+          <!-- Paste navbar here from cheatsheet -->
+          <!-- read on navbar -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">
+                  <img src="../static/logo.png" alt="" width="150" height="50">
+              </a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link text-info" href="/shoes">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link text-info" href="/shoes">Shoes</a>
+                  </li>
+
+                    <style>
+                          .dropdown:hover>.dropdown-menu{
+                               display:block;
+                          }
+
+                        .dropdown>.dropdown-toggle:active {
+                        }
+                    </style>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link  dropdown-toggle" href="#"
+                           id="navbardrop1" data-toggle="dropdown">
+                               <i class="fas fa-user"></i>Account</a>
+                         <div class="dropdown-menu">
+                             <a href="/signin" class="dropdown-item">Sign In</a>
+                             <a href="" class="dropdown-item">Sign Up</a>
+                         </div>
+                    </li>
+
+                  <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="#"
+                       id="navbardrop" data-toggle="dropdown">Electronics</a>
+                     <div class="dropdown-menu">
+                         <a href="" class="dropdown-item">Tv Screens</a>
+                         <a href="" class="dropdown-item">Smartphones</a>
+                         <a href="" class="dropdown-item">Cookers</a>
+                         <a href="" class="dropdown-item">Kitchen Appliances</a>
+                     </div>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div>
+            </nav>
+     </div>
+</section>
+
+<div class="container">
+       <section class="row">
+             <div class="col-md-4" style="padding:2%;">
+                  <img src="../static/{{row[12]}}" alt="" class="img-fluid img-thumbnail">
+             </div>
+            <div class="col-md-5" style="padding:2%;">
+                   <span style="color:grey;">Brand</span>
+                   <span style="color:orange;"> <b>{{row[10]}} </b>  </span>
+                   <br><br>
+                   <h5><b>{{row[2]}}</b></h5>
+
+                   <span style="color:grey;">Category</span>
+                   <span style="color:orange;"> <b>{{row[11]}} </b>  </span>
+                    <br><br>
+                    <b>Description</b> <br>
+                    <p style="color:grey">{{row[4]}}</p>
+
+                   <span style="color:grey;">Size</span>
+                   <span style="color:orange;"> <b>{{row[8]}} </b>  </span>
+                   <br>
+                   <span style="color:grey;">Color</span>
+                   <span style="color:orange;"> <b>{{row[9]}} </b>  </span>
+             </div>
+
+            <div class="col-md-3" style="padding:2%;">
+                <label for="">Qtty</label><br>
+                <input type="number" placeholder="Qtty" class="form-control"> <br>
+                <h4> <b style="color:orange;">KES {{row[7]}} </b> </h4>
+                <span style="color:grey;"> <strike>KES {{row[6]}}</strike>   </span>
+                <br>
+                <b class="badge badge-danger">20% Discount</b> <br><br>
+                <input type="submit" value="BUY NOW" class="btn btn-success"> <br><br>
+                 <b>ESTIMATED TIME</b> <br>
+                 <span>2 to 5 Business working days</span>
+             </div>
+       </section>
+
+       <section class="row">
+           <div class="col-md-6">
+               <form action="">
+                     <h4>Write a Review</h4>
+                     <textarea name="" id="" cols="30" rows="4"
+                               class="form-control"></textarea> <br>
+                   <input type="submit" value="Send Review" class="btn btn-success">
+                   <br><br>
+               </form>
+           </div>
+       </section>
+<!--Read more  on HTML forms-->
+</div>
+
+<!--Paste or do a footer-->
+
+<footer class="row" style="background:orange;color:white;text-align:center; padding:1%;">
+    <div class="col-md-12">
+        <b>Copyright &copy; 2021 - All rights reserved. </b>
+        <i>Customer Care: 254 788 555 555</i>
+    </div>
+</footer>
+</body>
+</html>
