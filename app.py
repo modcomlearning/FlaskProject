@@ -135,6 +135,32 @@ def logout():
     return redirect('/login')
 
 
+@app.route('/reviews', methods = ['POST','GET'])
+def reviews():
+    if request.method =='POST':
+        user = request.form['user']
+        product_id = request.form['product_id']
+        message = request.form['message']
+        sql = "insert into reviews(user, product_id, message) values (%s, %s, %s)"
+        cursor = connection.cursor()
+        try:
+            cursor.execute(sql, (user, product_id, message))
+            connection.commit()
+            return 'Success'
+        except:
+            return 'Failed'
+    else:
+        return ''
+# create a table named reviews
+#review_id INT PK AI   50
+# user VARCHAR 100
+# product_id INT 50
+# message VARCHAR 200
+# review_date TIMESTAMP   - default CURRENT TIME STAMP
+
+# git link: https://github.com/modcomlearning/FlaskProject
+# create a github.com account
+
 if __name__ =='__main__':
     app.run()
 # Right click run,
