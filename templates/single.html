@@ -40,14 +40,38 @@
                 <span style="color:grey;"> <strike>KES {{row[6]}}</strike>   </span>
                 <br>
                 <b class="badge badge-danger">20% Discount</b> <br><br>
-                <input type="submit" value="BUY NOW" class="btn btn-success"> <br><br>
-                 <b>ESTIMATED TIME</b> <br>
+
+                {% if session.user %}
+                <b>Want to Pay Enter Your Phone below</b> <br>
+                <form action="/mpesa_payment" method="post">
+                    <input type="tel" name="phone" placeholder="Your Phone +254.." required>
+                    <input type="hidden" value="{{row[7]}}" name="amount" required> <br>
+                    <input type="submit" value="Pay Now" class="btn btn-info">
+                </form>
+                <!--  daraja-->
+                {% else %}
+                     Login to Make payment <a href="/login">Here</a>
+                {% endif %}
+
+
+                <b>ESTIMATED TIME</b> <br>
                  <span>2 to 5 Business working days</span>
              </div>
        </section>
 
     {% if session.user %}
     <a href="/logout">Logout</a> <br>
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+              <li class="text-info">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+
        <section class="row">
            <div class="col-md-6">
                <form action="/reviews" method="post">
@@ -65,7 +89,7 @@
        </section>
      {% else %}
        <b>Login to post a review <a href="/login">Login here</a></b>
-    {% endif %}
+       {% endif %}
 
 <!--Read more  on HTML forms-->
 </div>
