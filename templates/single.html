@@ -34,8 +34,6 @@
              </div>
 
             <div class="col-md-3" style="padding:2%;">
-                <label for="">Qtty</label><br>
-                <input type="number" placeholder="Qtty" class="form-control"> <br>
                 <h4> <b style="color:orange;">KES {{row[7]}} </b> </h4>
                 <span style="color:grey;"> <strike>KES {{row[6]}}</strike>   </span>
                 <br>
@@ -44,8 +42,11 @@
                 {% if session.user %}
                 <b>Want to Pay Enter Your Phone below</b> <br>
                 <form action="/mpesa_payment" method="post">
+                    <label for="">Please Enter Qtty</label> <br>
+                    <input type="number" name="qtty" class="form-control"> <br>
                     <input type="tel" name="phone" placeholder="Your Phone +254.." required>
-                    <input type="hidden" value="{{row[7]}}" name="amount" required> <br>
+                    <input type="hidden" value="{{row[7]}}" name="amount" required>
+                    <input type="hidden" value="{{row[0]}}" name="product_id" required>
                     <input type="submit" value="Pay Now" class="btn btn-info">
                 </form>
                 <!--  daraja-->

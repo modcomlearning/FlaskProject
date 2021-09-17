@@ -166,10 +166,10 @@ def reviews():
 # message VARCHAR 200
 # review_date TIMESTAMP   - default CURRENT TIME STAMP
 
-# git link: https://github.com/modcomlearning/FlaskProject
-# create a github.com account
+
 # get below code here   https://github.com/modcomlearning/mpesa_sample
 # create a payment.html   template
+# my code:  https://github.com/modcomlearning/FlaskProject
 import requests
 import datetime
 import base64
@@ -179,9 +179,16 @@ def mpesa_payment():
         if request.method == 'POST':
             phone = str(request.form['phone'])
             amount = str(request.form['amount'])
+            # capture the session of paying client
+            email = session['user']
+            qtty = str(request.form['qtty'])
+            product_id = str(request.form['product_id'])
+            # multiply qtty * amount
+            total_pay = float(qtty) * float(amount)
+
             # GENERATING THE ACCESS TOKEN
-            consumer_key = "GTWADFxIpUfDoNikNGqq1C3023evM6UH"
-            consumer_secret = "amFbAoUByPV2rM5A"
+            consumer_key = "jLoPZqAEPB3JSq9P93PyFbYgML1nqVdV"
+            consumer_secret = "ADftWJGRK695PJBB"
 
             api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials" #AUTH URL
             r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
@@ -197,20 +204,19 @@ def mpesa_payment():
             encoded = base64.b64encode(data.encode())
             password = encoded.decode('utf-8')
 
-
             # BODY OR PAYLOAD
             payload = {
                 "BusinessShortCode": "174379",
                 "Password": "{}".format(password),
                 "Timestamp": "{}".format(timestamp),
                 "TransactionType": "CustomerPayBillOnline",
-                "Amount": amount,  # use 1 when testing
+                "Amount": total_pay,  # use 1 when testing
                 "PartyA": phone,  # change to your number
                 "PartyB": "174379",
                 "PhoneNumber": phone,
                 "CallBackURL": "https://modcom.co.ke/job/confirmation.php",
-                "AccountReference": "account",
-                "TransactionDesc": "account"
+                "AccountReference": email,
+                "TransactionDesc": 'Qtty: '+qtty +' ID: '+ product_id
             }
 
             # POPULAING THE HTTP HEADER
@@ -220,7 +226,6 @@ def mpesa_payment():
             }
 
             url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest" #C2B URL
-
             response = requests.post(url, json=payload, headers=headers)
             print (response.text)
             return render_template('payment.html', msg = 'Please Complete Payment in Your Phone')
