@@ -186,6 +186,21 @@ def mpesa_payment():
             # multiply qtty * amount
             total_pay = float(qtty) * float(amount)
 
+            # sql to insert to sql
+            # create a table named payment_info
+            # pay_id INT, PK AI
+            # phone VARCHAR 50,
+            # email VARCHAR 100
+            # qtty INT 50
+            # total
+            # pid INT 50
+            # pay_date time stamp default current timestamp
+            sql = 'insert into payment_info(phone,email,qtty,total,pid)values(%s,%s,%s,%s,%s)'
+            cursor = connection.cursor()
+            cursor.execute(sql,(phone, email, qtty, total_pay,product_id))
+            connection.commit()
+            
+
             # GENERATING THE ACCESS TOKEN
             consumer_key = "jLoPZqAEPB3JSq9P93PyFbYgML1nqVdV"
             consumer_secret = "ADftWJGRK695PJBB"
@@ -228,6 +243,8 @@ def mpesa_payment():
             url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest" #C2B URL
             response = requests.post(url, json=payload, headers=headers)
             print (response.text)
+
+
             return render_template('payment.html', msg = 'Please Complete Payment in Your Phone')
         else:
             return render_template('payment.html')
