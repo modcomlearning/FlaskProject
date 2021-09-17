@@ -199,12 +199,13 @@ def mpesa_payment():
             cursor = connection.cursor()
             cursor.execute(sql,(phone, email, qtty, total_pay,product_id))
             connection.commit()
-            
+            #https://github.com/modcomlearning/FlaskProject
 
             # GENERATING THE ACCESS TOKEN
             consumer_key = "jLoPZqAEPB3JSq9P93PyFbYgML1nqVdV"
             consumer_secret = "ADftWJGRK695PJBB"
-
+            
+            # github, how to create a github profile
             api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials" #AUTH URL
             r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
 
