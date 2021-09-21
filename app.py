@@ -27,8 +27,6 @@ def shoes():
     else:
         rows  = cursor.fetchall()
         return render_template('shoes.html', rows = rows)
-
-
 # this route will display single shoe
 # this route will need a product id
 @app.route('/single/<product_id>')
@@ -48,7 +46,6 @@ def single(product_id):
     else:
         row  = cursor.fetchone()  # NB: product id was unique, so fetch one
         return render_template('single.html', row = row)
-
 
 # this is the login route
 # below route accepts a GET or a POST
@@ -129,12 +126,10 @@ def register():
     else:
         return render_template('register.html')
 
-
 @app.route('/logout')
 def logout():
     session.pop('user') # clear session
     return redirect('/login')
-
 
 @app.route('/reviews', methods = ['POST','GET'])
 def reviews():
@@ -204,7 +199,7 @@ def mpesa_payment():
             # GENERATING THE ACCESS TOKEN
             consumer_key = "jLoPZqAEPB3JSq9P93PyFbYgML1nqVdV"
             consumer_secret = "ADftWJGRK695PJBB"
-            
+
             # github, how to create a github profile
             api_URL = "https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials" #AUTH URL
             r = requests.get(api_URL, auth=HTTPBasicAuth(consumer_key, consumer_secret))
@@ -252,10 +247,45 @@ def mpesa_payment():
 
 
 
+# admin side dashboard===============
+@app.route('/admin', methods = ['POST','GET'])
+def admin():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        # we now move to the database and confirm if above details exist
+        sql = "SELECT * FROM admin where email = %s and password=%s"
+        # create a cursor and execute above sql
+        cursor = connection.cursor()
+        # execute the sql, provide email and password to fit %s placeholders
+        cursor.execute(sql, (email, password))
+        # check if a match was found
+        if cursor.rowcount ==0:
+            return render_template('admin.html', error = 'Wrong Credentials')
+        elif cursor.rowcount ==1:
+            session['admin'] = email
+            return  redirect('/dashboard')
+        else:
+            return render_template('admin.html', error='Error Occured, Try Later')
+    else:
+        return render_template('admin.html')
 
 
 
-
+# dashboard
+@app.route('/dashboard')
+def dashboard():
+    if 'admin' in session:
+        sql = "select * from customers"
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        if cursor.rowcount == 0:
+            return render_template('dashboard.html', msg = "No Customers")
+        else:
+            rows = cursor.fetchall()
+            return  render_template('dashboard.html', rows = rows) # create this template
+    else:
+        return redirect('/admin')
 
 
 if __name__ =='__main__':
