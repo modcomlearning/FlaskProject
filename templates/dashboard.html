@@ -9,7 +9,8 @@
   {% if session.admin %}
       <h1 class="jumbotron">Admin Dashboard</h1>
       <div class="container">
-
+                <b>{{session.admin}}</b>
+                <a href="/adminlogout">Logout</a>
             <section class="row">
                  <div class="col-md-2">
                     <!-- bootstrap side bar-->
@@ -42,7 +43,6 @@
                 </div>
             </section>
       </div>
-
 {% else %}
    Login as admin <a href="/admin">Here</a>
 {% endif %}

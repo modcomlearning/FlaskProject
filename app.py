@@ -131,6 +131,12 @@ def logout():
     session.pop('user') # clear session
     return redirect('/login')
 
+
+@app.route('/adminlogout')
+def adminlogout():
+    session.pop('admin') # clear session
+    return redirect('/admin')
+
 @app.route('/reviews', methods = ['POST','GET'])
 def reviews():
     if request.method =='POST':
