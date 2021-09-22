@@ -277,12 +277,11 @@ def admin():
         return render_template('admin.html')
 
 
-
 # dashboard
 @app.route('/dashboard')
 def dashboard():
     if 'admin' in session:
-        sql = "select * from customers"
+        sql = "select * from customers ORDER by reg_date DESC"
         cursor = connection.cursor()
         cursor.execute(sql)
         if cursor.rowcount == 0:
@@ -293,6 +292,17 @@ def dashboard():
     else:
         return redirect('/admin')
 
+@app.route('/customer_del/<customer_id>')
+def customer_del(customer_id):
+    if 'admin' in session:
+        sql = 'delete from customers where customer_id = %s'
+        cursor = connection.cursor()
+        cursor.execute(sql, (customer_id))
+        connection.commit()
+        flash("Delete Successful")
+        return redirect('/dashboard')
+    else:
+        return redirect('/admin')
 
 if __name__ =='__main__':
     app.run()
